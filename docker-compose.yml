@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bikeroubada
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+
+  app:
+    depends_on:
+      - mysql
+    build: ./
+    restart: on-failure
+    ports:
+      - 6868:8080
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://mysql:3306/bikeroubada'
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQLDialect
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    volumes:
+      - .m2:/root/.m2
+    stdin_open: true
+    tty: true
+
+volumes:
+  db:
