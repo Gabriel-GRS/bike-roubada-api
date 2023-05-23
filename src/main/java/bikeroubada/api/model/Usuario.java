@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import java.time.LocalDate;
 
 @Table(name="usuarios")
 @Entity(name="usuario")
@@ -35,7 +36,7 @@ public class Usuario {
     private String endereco;
     private String cpf;
     private char sexo;
-    private int idade;
+    private LocalDate idade;
     private Boolean ativo;
 
 

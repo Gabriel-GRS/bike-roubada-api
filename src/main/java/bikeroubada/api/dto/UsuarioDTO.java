@@ -1,5 +1,7 @@
 package bikeroubada.api.dto;
 
+import java.time.LocalDate;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -10,7 +12,7 @@ public record UsuarioDTO(
 @NotBlank String nome,
 @NotBlank @Email String email,
 @NotBlank String numeroTelefone,
-@NotNull int idade,
+@NotNull LocalDate idade,
 @NotNull char sexo,
 @NotBlank String endereco,
 @NotBlank @Pattern(regexp="^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$")
