@@ -6,7 +6,7 @@ create table usuarios(
     numero_telefone varchar(20) not null,
     endereco varchar(255),
     cpf varchar(14) not null unique,
-    idade int,
+    idade date,
     sexo char(1) not null,
 
     primary key(id)
