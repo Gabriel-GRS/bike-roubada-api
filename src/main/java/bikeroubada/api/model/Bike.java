@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 
 @Table(name="bike")
 @Entity(name="bike")
@@ -27,9 +30,14 @@ public class Bike {
     private Integer chassi;
     private String cor;
     private boolean ativo;
+    private Usuario usuario;
   
 
     public void excluir() {
         this.ativo = false;
     }
+
+
+	public void setUsuario(Usuario usuario2) {
+	}
 }

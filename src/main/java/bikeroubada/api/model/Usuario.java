@@ -7,6 +7,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name="usuarios")
 @Entity(name="usuario")
@@ -25,6 +27,7 @@ public class Usuario {
         this.sexo = usuario.sexo();
         this.endereco = usuario.endereco();
         this.ativo = true;
+        this.bikes = new ArrayList<>();
 
     }
     
@@ -38,6 +41,8 @@ public class Usuario {
     private char sexo;
     private LocalDate idade;
     private Boolean ativo;
+    private List<Bike> bikes = new ArrayList<>();
+
 
 
     public void excluir() {
